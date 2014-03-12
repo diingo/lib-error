@@ -156,20 +156,21 @@ describe Library do
     book_2 = lib.books[1]
     book_3 = lib.books[2]
 
+    binding.pry
     # The first two books should check out fine
     book1 = lib.check_out_book(book_1.id, jackson)
     expect(book1.title).to eq "Eloquent JavaScript"
     
     # binding.pry
 
-    # book2 = lib.check_out_book(book_2.id, jackson)
-    # expect(book2.title).to eq "Essential JavaScript Design Patterns"
+    book2 = lib.check_out_book(book_2.id, jackson)
+    expect(book2.title).to eq "Essential JavaScript Design Patterns"
 
     # binding.pry
 
     # However, the third should return nil
-    # book3 = lib.check_out_book(book_3.id, jackson)
-    # expect(book3).to be_nil
+    book3 = lib.check_out_book(book_3.id, jackson)
+    expect(book3).to be_nil
   end
 
   it "returns available books" do
